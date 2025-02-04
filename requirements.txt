@@ -3,7 +3,7 @@ Django==4.2
 django-cors-headers==3.13.0
 django-environ==0.8.1
 djangorestframework==3.14.0
-djoser==2.1.0
+djoser==2.2.0  # O la versión más reciente de djoser que sea compatible con social-auth-app-django==5.0.0
 social-auth-app-django==5.0.0  # O la versión más reciente disponible
 
 django-ckeditor==6.5.1
