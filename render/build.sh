@@ -4,7 +4,7 @@ set -o errexit
 
 
 # Definir las variables de entorno necesarias
-export DJANGO_SETTINGS_MODULE="my_project.settings"
+export DJANGO_SETTINGS_MODULE="core.settings"
 export EMAIL="admin@vudera.com"
 export PASSWORD="admin_password"
 
