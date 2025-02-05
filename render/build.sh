@@ -13,7 +13,7 @@ python manage.py migrate
 
 # Crear el superusuario (ajustado a tu modelo personalizado)
 python manage.py shell <<EOF
-from user.models import UserUseraccount  # Asegúrate de que el modelo esté correctamente importado
+from ecommerce.models import UserUseraccount  # Asegúrate de que el modelo esté correctamente importado
 if not UserUseraccount.objects.filter(email='admin@example.com').exists():
     user = UserUseraccount.objects.create(
         email='admin@example.com',
