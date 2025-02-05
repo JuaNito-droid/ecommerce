@@ -2,6 +2,14 @@
 # Exit on error
 set -o errexit
 
+
+# Definir las variables de entorno necesarias
+export DJANGO_SETTINGS_MODULE="my_project.settings"
+export EMAIL="admin@vudera.com"
+export PASSWORD="admin_password"
+
+
+
 # Modify this line as needed for your package manager (pip, poetry, etc.)
 pip install -r requirements.txt
 
@@ -11,24 +19,19 @@ python manage.py collectstatic --no-input
 # Apply any outstanding database migrations
 python manage.py migrate
 
-# Crear el superusuario (ajustado a tu modelo personalizado)
+# Crear un superusuario si no existe (esto es para evitar errores si el superusuario ya está creado)
 python manage.py shell <<EOF
-from ecommerce.models import UserUseraccount  # Asegúrate de que el modelo esté correctamente importado
-if not UserUseraccount.objects.filter(email='admin@example.com').exists():
-    user = UserUseraccount.objects.create(
-        email='admin@example.com',
-        first_name='Admin',
-        last_name='User',
-        password='password123',  # Usa una contraseña más segura
-        is_active=True,
-        is_staff=True,
-        is_superuser=True
-    )
-    user.set_password('password123')  # Establece la contraseña de manera segura
-    user.save()
-    print("Superusuario creado con éxito.")
-else:
-    print("El superusuario ya existe.")
-EOF
+from apps.user.models import UserAccount
+from django.db.utils import IntegrityError
 
-# Puedes agregar más comandos si es necesario, como iniciar el servidor, etc.
+try:
+    # Verificar si el superusuario ya existe
+    if not UserAccount.objects.filter(email="$EMAIL").exists():
+        # Crear superusuario
+        UserAccount.objects.create_superuser(email="$EMAIL", password="$PASSWORD", first_name="Admin", last_name="User")
+        print("Superuser created successfully.")
+    else:
+        print("Superuser already exists.")
+except IntegrityError as e:
+    print(f"Error creating superuser: {e}")
+EOF
