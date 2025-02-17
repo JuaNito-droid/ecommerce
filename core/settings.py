@@ -19,7 +19,7 @@ DEBUG = 'RENDER' not in os.environ
 DOMAIN = os.environ.get('DOMAIN')
 
 # https://docs.djangoproject.com/en/3.0/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'yourdomain.com']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -226,10 +226,7 @@ if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     
     
-ALLOWED_HOSTS = [
-    'ecommerce-pq53.onrender.com',  # Agrega el dominio de producción
-    'www.ecommerce-pq53.onrender.com',
-]
+
 
 CORS_ORIGIN_WHITELIST = [
     'https://ecommerce-pq53.onrender.com',  # Front-end en producción
