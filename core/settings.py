@@ -100,21 +100,6 @@ DATABASES = {
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
-    'http://127.0.0.1:3000',
-    'https://vudera.com',
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:3000',
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
-    'http://127.0.0.1:3000',
-    'https://vudera.com',
-]
 
 PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.Argon2PasswordHasher",
@@ -229,11 +214,18 @@ if not DEBUG:
 
 
 CORS_ORIGIN_WHITELIST = [
-    'https://ecommerce-pq53.onrender.com',  # Front-end en producción
+    'https://ecommerce-1-wwit.onrender.com',  # Front-end en producción
     'http://localhost:3000',  # Si tienes un front-end local
 ]
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://ecommerce-pq53.onrender.com',  # Dominio del front-end
+    'https://ecommerce-1-wwit.onrender.com',  # Dominio del front-end
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+
+CORS_ALLOWED_ORIGINS = [
+    'https://ecommerce-1-wwit.onrender.com',
 ]
