@@ -9,6 +9,7 @@ export EMAIL="admin@vudera.com"
 export PASSWORD="admin_password"
 
 
+pip install setuptools wheel
 
 # Modify this line as needed for your package manager (pip, poetry, etc.)
 pip install -r requirements.txt
