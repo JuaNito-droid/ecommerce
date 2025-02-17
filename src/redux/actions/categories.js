@@ -10,6 +10,7 @@ export const get_categories = () => async dispatch => {
             'Accept': 'application/json'
         }
     };
+    console.log('API URL:', process.env.REACT_APP_API_URL);
 
     try {
         const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/category/categories`, config);
