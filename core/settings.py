@@ -19,12 +19,7 @@ DEBUG = 'RENDER' not in os.environ
 DOMAIN = os.environ.get('DOMAIN')
 
 # https://docs.djangoproject.com/en/3.0/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = [
-    'ecommerce-pq53.onrender.com',
-    '127.0.0.1',
-    'localhost',
-    'www.ecommerce-pq53.onrender.com',  # Para aceptar las solicitudes desde www si se configura
-]
+ALLOWED_HOSTS = []
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -106,7 +101,6 @@ DATABASES = {
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 CORS_ORIGIN_WHITELIST = [
-    'https://ecommerce-pq53.onrender.com',
     'http://localhost:3000',
     'http://localhost:8000',
     'http://127.0.0.1:8000',
@@ -115,7 +109,6 @@ CORS_ORIGIN_WHITELIST = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://ecommerce-pq53.onrender.com',
     'http://localhost:3000',
     'http://localhost:8000',
     'http://127.0.0.1:8000',
