@@ -224,3 +224,19 @@ if not DEBUG:
     EMAIL_PORT = env('EMAIL_PORT')
     EMAIL_USE_TLS = env('EMAIL_USE_TLS')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    
+    
+ALLOWED_HOSTS = [
+    'ecommerce-pq53.onrender.com',  # Agrega el dominio de producción
+    'www.ecommerce-pq53.onrender.com',
+]
+
+CORS_ORIGIN_WHITELIST = [
+    'https://ecommerce-pq53.onrender.com',  # Front-end en producción
+    'http://localhost:3000',  # Si tienes un front-end local
+]
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://ecommerce-pq53.onrender.com',  # Dominio del front-end
+]
